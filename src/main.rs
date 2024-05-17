@@ -1,15 +1,16 @@
 use std::io;
 use std::process::Command;
 
-const base: [&str; 7] = ["Arch", "Debian", "RHEL", "Gentoo", "OpenSUSE", "Void", "FreeBSD"];
-const types: [&str; 3] = ["File Managers","Browsers","Extra"];
-const file_managers: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
-const browsers: [&str; 5] = ["Chrome", "Chromium", "Opera", "Firefox", "LibreWolf"];
+const BASE: [&str; 7] = ["Arch", "Debian", "RHEL", "Gentoo", "OpenSUSE", "Void", "FreeBSD"];
+const TYPE: [&str; 3] = ["File Managers","Browsers","Extra"];
+const FILES: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
+const BROWSER: [&str; 5] = ["Chrome", "Chromium", "Opera", "Firefox", "LibreWolf"];
+const TERMINAL: [&str; 5] = ["Alacritty", "Kitty", "XTerm", "Konsole", "GNOME"];
 
 fn main() {
     println!("What do you want to install?");
     let mut n = 0;
-    for i in types {
+    for i in TYPE {
         n += 1;
         println!("{n}) {i}");
     }
@@ -35,19 +36,25 @@ fn get_selection(install_type: &str) -> String {
     let mut n = 0;
     let mut user_selection = "1".to_string();
     match install_type {
-        "files" => for i in file_managers {
+        "files" => for i in FILES{
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "browsers" => for i in browsers {
+        "browsers" => for i in BROWSER {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "base" => for i in base {
+        "base" => for i in BASE {
+            n += 1;
+            println!("{n}) {i}");
+            let sel = &mut user_selection;
+            *sel = "{i}".to_string();
+        },
+        "terminals" => for i in TERMINAL {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
