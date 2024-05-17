@@ -25,12 +25,9 @@ fn main() {
 }
 
 fn commands() {
-    let _cmd = Command::new("bash").arg("-c");
-
-    let _mkdir = Command::new("mkdir");
-    let _pacman = Command::new("pacman");
-    let _apt = Command::new("apt");
-    let _rpm = Command::new("rpm");
+    let _cmd = Command::new("bash")
+        .arg("-c")
+        .arg("{input}");
 }
 
 fn get_selection(install_type: &str) -> String {
@@ -58,6 +55,5 @@ fn get_selection(install_type: &str) -> String {
         },
         &_ => todo!(),
     }
-
     return user_selection;
 }
