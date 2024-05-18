@@ -12,6 +12,7 @@ Currently only supports;
 - Gentoo
 - Alpine
 - FreeBSD
+And all derivatives.
 
 # What it can install
 This is an installer for base packages when you dont know the package manager or what your doing in the command line. 
