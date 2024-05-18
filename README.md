@@ -4,7 +4,7 @@ An Installer for idiots that dont know how to do it themselves
 
 # What was used to make it
 This installer for Unix based systems, was built primarily in rust to provide stability and speed. It will have maximum compatability.
-Currently only supports;
+Currently only supports these, and all their derivatives;
 - Arch based
 - Debian based
 - Fedora/RHEL based
@@ -12,7 +12,7 @@ Currently only supports;
 - Gentoo
 - Alpine
 - FreeBSD
-And all derivatives.
+
 
 # What it can install
 This is an installer for base packages when you dont know the package manager or what your doing in the command line. 
