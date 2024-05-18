@@ -1,20 +1,21 @@
 use std::io;
 use std::process::Command;
 
-const BASE: [&str; 7] = ["Arch", "Debian", "RHEL", "Gentoo", "Void", "FreeBSD", "Alpine"];
-const TYPE: [&str; 7] = ["File Managers","Browsers","Terminals", "Media", "Gaming", "Connection Utilities", "Desktop Environments"];
+const BASE: [&str; 7] = ["Arch", "Debian", "Gentoo", "FreeBSD", "Alpine", "Void", "RHEL"];
+const TYPE: [&str; 8] = ["File Managers","Browsers","Terminals", "Media", "Gaming", "Connection Utilities", "Desktop Environments", "Extras"];
 const FILES: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
 const BROWSER: [&str; 6] = ["Chrome", "Chromium", "Opera", "Firefox", "LibreWolf", "Edge"];
 const TERMINAL: [&str; 5] = ["Alacritty", "Kitty", "XTerm", "Konsole", "GNOME"];
-const EXTRA: [&str; 13] = ["Paru", "Yay", "Pamac", "Connman", "Blueman", "NetworkManager", "Hyfetch", "Htop", "Cmatrix", "Papirus Icons", "OpenSSH", "Anydesk", "TeamViewer"];
-const GAMING: [&str; 7] = ["Steam", "Discord", "Prism Launcher", "AT Launcher", "Heroic Launcher", "Lutris", "ProtonUp-QT"];
+const EXTRA: [&str; 10] = ["Paru", "Yay", "Pamac", "Connman", "Blueman", "NetworkManager", "Hyfetch", "Htop", "Cmatrix", "Papirus Icons"];
+const GAMING: [&str; 7] = ["Steam", "Discord", "Prism Launcher", "ATLauncher", "Heroic Launcher", "Lutris", "ProtonUp-QT"];
 const MEDIA: [&str; 7] = ["Spotify", "VLC", "ThunderBird", "OBS Studio", "KdenLive", "DaVinci Resolve", "Rhythm Box"];
 const DESKTOP: [&str; 8] = ["KDE Plasma", "GNOME", "Xfce4", "LXQT", "MATE", "i3", "Bspwm", "Sway"];
-const CONNECTION: [&str; 5] = ["Moonlight", "Sunshine", "Haguichi(Hamachi)", "ZeroTier", "WireGuard"];
-const PACMANS: [&str; 9] = ["pacman", "apt", "zypper", "emeerge", "pkg", "apk", "xpvs", "dnf", "yum"];
+const CONNECTION: [&str; 8] = ["Moonlight", "Sunshine", "Haguichi(Hamachi)", "ZeroTier", "WireGuard", "OpenSSH", "Anydesk", "TeamViewer"];
+const PACMANS: [&str; 7] = ["pacman", "apt", "emerge", "pkg", "apk", "xpvs", "dnf"];
+const PACMANS_OUTPUTS: [&str; 7] = ["/usr/bin/pacman", "/usr/bin/apt", "/usr/bin/emerge", "/usr/bin/pkg", "/usr/bin/apk", "/usr/bin/xpvs", "/usr/bin/dnf"];
 
 fn main() {
-    let distribution = check_distro();
+    println!("Detected derivative of {}", check_distro());
     println!("What do you want to install?");
     let mut n = 0;
     for i in TYPE {
@@ -23,7 +24,7 @@ fn main() {
     }
     let mut selection = String::new();
     let _ = io::stdin().read_line(&mut selection);
-    let selection = selection.trim().parse::<u32>().expect("Not a number.");
+    let selection = selection.trim().parse::<i32>().expect("Not a number.");
     match selection {
         1 => get_selection("files"),
         2 => get_selection("browsers"),
@@ -32,59 +33,35 @@ fn main() {
         5 => get_selection("gaming"),
         6 => get_selection("connection"),
         7 => get_selection("desktop"),
-        0_u32 | 4_u32..=u32::MAX => todo!(),
+        8 => get_selection("extra"),
+        i32::MIN..=0_i32 | 9_i32..=i32::MAX => todo!(),
     };
 }
 
 fn check_distro() -> String {
     let which = "which".to_string();
-    let mut distro = "Unknown".to_string();
-    for i in PACMANS {
-        let check = commands(&which, &i.to_string());
-        match check {
-            "/usr/bin/pacman" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "Arch".to_string();
-            },
-            "/usr/bin/apt" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "Debian".to_string();
-            },
-            "/usr/bin/dnf" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "RHEL".to_string();
-            },
-            "/usr/bin/emerge" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "Gentoo".to_string();
-            },
-            "/usr/bin/pkg" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "FreeBSD".to_string();
-            },
-            "/usr/bin/apk" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "Alpine".to_string();
-            },
-            "/usr/bin/xpvs" => {
-                let distro_sel = &mut distro;
-                *distro_sel = "Void".to_string();
-            },
-            &_ => todo!(),
+    let mut distro = "Unknown";
+    for (i, pacman) in PACMANS.iter().enumerate() {
+        let check = commands(which.clone(), pacman.to_string());
+        if check.contains(PACMANS_OUTPUTS[i]) {
+            let sel = &mut distro;
+            *sel = BASE[i];
+            break;
         }
     }
-    return distro;
+    return distro.to_string();
 }
 
-fn commands(input: &String, input2: &String) -> &str {
-    let cmd = Command::new("bash")
-        .arg("-c")
-        .arg("{input}")
-        .arg("{input2}")
+fn commands(input: String, input2: String) -> String {
+    let cmd = Command::new(format!("{input}"))
+        .arg(format!("{input2}"))
         .output()
         .expect("Command Not Found");
     let output_utf8 = cmd.stdout;
-    let output = output_utf8.String::from_utf(), { return output };
+    let output = String::from_utf8(output_utf8).expect("Not an argument");
+    return output;
+
+
 }
 
 fn get_selection(install_type: &str) -> String {
@@ -131,6 +108,12 @@ fn get_selection(install_type: &str) -> String {
         "desktop" => for i in DESKTOP {
             n += 1;
             println!("{n}) {i}");
+            let sel = &mut user_selection;
+            *sel = "{i}".to_string();
+        },
+        "extra" => for i in EXTRA {
+            n += 1;
+            println!("{n}) {i}")
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
