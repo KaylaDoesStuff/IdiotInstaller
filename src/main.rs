@@ -113,7 +113,7 @@ fn get_selection(install_type: &str) -> String {
         },
         "extra" => for i in EXTRA {
             n += 1;
-            println!("{n}) {i}")
+            println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
