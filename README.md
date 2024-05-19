@@ -23,5 +23,5 @@ supports;
 - Alacritty, Kitty, XTerminal, Konsole, GNOME Terminal
 - GNOME, KDE Plasma, LXQT, Xfce4, MATE, i3, Bspwm, Sway
 - Spotify, VLC, ThunderBird, OBS Studio, KdenLive, DaVinci Resolve, RhythmBox
-- Steam, Discord Prism Launcher, AT Launcher, Heroic Launcher, Lutris, ProtonUp-QT
+- Steam, Discord, Prism Launcher, ATLauncher, Heroic Launcher, Lutris, ProtonUp-QT
 - Paru, Yay, Pamac, Connman, BlueMan, NetworkManager, Hyfetch, Htop, Cmatrix, Papirus Icons, OpenSSH, AnyDesk, TeamViewer
