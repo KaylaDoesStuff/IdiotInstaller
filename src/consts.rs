@@ -1,0 +1,12 @@
+pub const BASE: [&str; 7] = ["Arch", "Debian", "Gentoo", "FreeBSD", "Alpine", "Void", "RHEL"];
+pub const TYPE: [&str; 8] = ["File Managers","Browsers","Terminals", "Media", "Gaming", "Connection Utilities", "Desktop Environments", "Extras"];
+pub const FILES: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
+pub const BROWSER: [&str; 6] = ["Chrome", "Chromium", "Opera", "Firefox", "LibreWolf", "Edge"];
+pub const TERMINAL: [&str; 5] = ["Alacritty", "Kitty", "XTerm", "Konsole", "GNOME"];
+pub const EXTRA: [&str; 10] = ["Paru", "Yay", "Pamac", "Connman", "Blueman", "NetworkManager", "Hyfetch", "Htop", "Cmatrix", "Papirus Icons"];
+pub const GAMING: [&str; 7] = ["Steam", "Discord", "Prism Launcher", "ATLauncher", "Heroic Launcher", "Lutris", "ProtonUp-QT"];
+pub const MEDIA: [&str; 7] = ["Spotify", "VLC", "ThunderBird", "OBS Studio", "KdenLive", "DaVinci Resolve", "Rhythm Box"];
+pub const DESKTOP: [&str; 8] = ["KDE Plasma", "GNOME", "Xfce4", "LXQT", "MATE", "i3", "Bspwm", "Sway"];
+pub const CONNECTION: [&str; 8] = ["Moonlight", "Sunshine", "Haguichi(Hamachi)", "ZeroTier", "WireGuard", "OpenSSH", "Anydesk", "TeamViewer"];
+pub const PACMANS: [&str; 7] = ["pacman", "apt", "emerge", "pkg", "apk", "xpvs", "dnf"];
+pub const PACMANS_OUTPUTS: [&str; 7] = ["/usr/bin/pacman", "/usr/bin/apt", "/usr/bin/emerge", "/usr/bin/pkg", "/usr/bin/apk", "/usr/bin/xpvs", "/usr/bin/dnf"];

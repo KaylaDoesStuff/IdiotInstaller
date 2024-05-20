@@ -1,20 +1,9 @@
 use std::io;
 use std::process::Command;
 
+mod consts;
 mod commands;
 
-const BASE: [&str; 7] = ["Arch", "Debian", "Gentoo", "FreeBSD", "Alpine", "Void", "RHEL"];
-const TYPE: [&str; 8] = ["File Managers","Browsers","Terminals", "Media", "Gaming", "Connection Utilities", "Desktop Environments", "Extras"];
-const FILES: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
-const BROWSER: [&str; 6] = ["Chrome", "Chromium", "Opera", "Firefox", "LibreWolf", "Edge"];
-const TERMINAL: [&str; 5] = ["Alacritty", "Kitty", "XTerm", "Konsole", "GNOME"];
-const EXTRA: [&str; 10] = ["Paru", "Yay", "Pamac", "Connman", "Blueman", "NetworkManager", "Hyfetch", "Htop", "Cmatrix", "Papirus Icons"];
-const GAMING: [&str; 7] = ["Steam", "Discord", "Prism Launcher", "ATLauncher", "Heroic Launcher", "Lutris", "ProtonUp-QT"];
-const MEDIA: [&str; 7] = ["Spotify", "VLC", "ThunderBird", "OBS Studio", "KdenLive", "DaVinci Resolve", "Rhythm Box"];
-const DESKTOP: [&str; 8] = ["KDE Plasma", "GNOME", "Xfce4", "LXQT", "MATE", "i3", "Bspwm", "Sway"];
-const CONNECTION: [&str; 8] = ["Moonlight", "Sunshine", "Haguichi(Hamachi)", "ZeroTier", "WireGuard", "OpenSSH", "Anydesk", "TeamViewer"];
-const PACMANS: [&str; 7] = ["pacman", "apt", "emerge", "pkg", "apk", "xpvs", "dnf"];
-const PACMANS_OUTPUTS: [&str; 7] = ["/usr/bin/pacman", "/usr/bin/apt", "/usr/bin/emerge", "/usr/bin/pkg", "/usr/bin/apk", "/usr/bin/xpvs", "/usr/bin/dnf"];
 
 fn main() {
     println!("Detected derivative of {}", commands::check_distro());
@@ -57,49 +46,49 @@ fn get_selection(install_type: &str) -> String {
     let mut n = 0;
     let mut user_selection = "1".to_string();
     match install_type {
-        "files" => for i in FILES {
+        "files" => for i in consts::FILES {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "browsers" => for i in BROWSER {
+        "browsers" => for i in consts::BROWSER {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "terminal" => for i in TERMINAL {
+        "terminal" => for i in consts::TERMINAL {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "media" => for i in MEDIA {
+        "media" => for i in consts::MEDIA {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "gaming" => for i in GAMING {
+        "gaming" => for i in consts::GAMING {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "connection" => for i in CONNECTION {
+        "connection" => for i in consts::CONNECTION {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "desktop" => for i in DESKTOP {
+        "desktop" => for i in consts::DESKTOP {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "extra" => for i in EXTRA {
+        "extra" => for i in consts::EXTRA {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
