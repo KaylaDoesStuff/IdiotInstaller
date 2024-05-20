@@ -1,7 +1,7 @@
 use std::io;
 use std::process::Command;
-use crate::commands;
-use crate::consts::*;
+use crate::commands as commands;
+use crate::consts::* as consts;
 
 mod consts;
 mod commands;
