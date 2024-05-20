@@ -1,6 +1,8 @@
 use std::io;
 use std::process::Command;
 
+mod commands;
+
 const BASE: [&str; 7] = ["Arch", "Debian", "Gentoo", "FreeBSD", "Alpine", "Void", "RHEL"];
 const TYPE: [&str; 8] = ["File Managers","Browsers","Terminals", "Media", "Gaming", "Connection Utilities", "Desktop Environments", "Extras"];
 const FILES: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
@@ -15,7 +17,7 @@ const PACMANS: [&str; 7] = ["pacman", "apt", "emerge", "pkg", "apk", "xpvs", "dn
 const PACMANS_OUTPUTS: [&str; 7] = ["/usr/bin/pacman", "/usr/bin/apt", "/usr/bin/emerge", "/usr/bin/pkg", "/usr/bin/apk", "/usr/bin/xpvs", "/usr/bin/dnf"];
 
 fn main() {
-    println!("Detected derivative of {}", check_distro());
+    println!("Detected derivative of {}", commands::check_distro());
     println!("What do you want to install?");
     let mut n = 0;
     for i in TYPE {
@@ -36,20 +38,6 @@ fn main() {
         8 => get_selection("extra"),
         i32::MIN..=0_i32 | 9_i32..=i32::MAX => todo!(),
     };
-}
-
-fn check_distro() -> String {
-    let which = "which".to_string();
-    let mut distro = "Unknown";
-    for (i, pacman) in PACMANS.iter().enumerate() {
-        let check = commands(which.clone(), pacman.to_string());
-        if check.contains(PACMANS_OUTPUTS[i]) {
-            let sel = &mut distro;
-            *sel = BASE[i];
-            break;
-        }
-    }
-    return distro.to_string();
 }
 
 fn commands(input: String, input2: String) -> String {
