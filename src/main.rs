@@ -1,5 +1,7 @@
 use std::io;
 use std::process::Command;
+use crate::commands;
+use crate::consts::*;
 
 mod consts;
 mod commands;
@@ -9,7 +11,7 @@ fn main() {
     println!("Detected derivative of {}", commands::check_distro());
     println!("What do you want to install?");
     let mut n = 0;
-    for i in TYPE {
+    for i in consts::TYPE {
         n += 1;
         println!("{n}) {i}");
     }
