@@ -1,18 +1,18 @@
 use std::io;
 use std::process::Command;
-use crate::command_funcs;
-use crate::consts::BASE;
-use crate::consts::TYPE;
-use crate::consts::FILES;
-use crate::consts::TERMINAL;
-use crate::consts::BROWSER;
-use crate::consts::MEDIA;
-use crate::consts::GAMING;
-use crate::consts::CONNECTION;
-use crate::consts::DESKTOP;
-use crate::consts::EXTRA;
-use crate::consts::PACMANS;
-use crate::consts::PACMANS_OUTPUTS;
+use crate::command_funcs::check_distro;
+use crate::constant_vars::BASE;
+use crate::constant_vars::TYPE;
+use crate::constant_vars::FILES;
+use crate::constant_vars::TERMINAL;
+use crate::constant_vars::BROWSER;
+use crate::constant_vars::MEDIA;
+use crate::constant_vars::GAMING;
+use crate::constant_vars::CONNECTION;
+use crate::constant_vars::DESKTOP;
+use crate::constant_vars::EXTRA;
+use crate::constant_vars::PACMANS;
+use crate::constant_vars::PACMANS_OUTPUTS;
 
 
 
