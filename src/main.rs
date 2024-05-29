@@ -3,6 +3,9 @@ use crate::command_funcs::check_distro;
 use crate::command_funcs::get_selection;
 use crate::constant_vars::TYPE;
 
+mod command_funcs;
+mod constant_vars;
+
 fn main() {
     println!("Detected derivative of {}", check_distro());
     println!("What do you want to install?");
