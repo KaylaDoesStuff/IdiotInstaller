@@ -9,4 +9,4 @@ pub const MEDIA: [&str; 7] = ["Spotify", "VLC", "ThunderBird", "OBS Studio", "Kd
 pub const DESKTOP: [&str; 8] = ["KDE Plasma", "GNOME", "Xfce4", "LXQT", "MATE", "i3", "Bspwm", "Sway"];
 pub const CONNECTION: [&str; 8] = ["Moonlight", "Sunshine", "Haguichi(Hamachi)", "ZeroTier", "WireGuard", "OpenSSH", "Anydesk", "TeamViewer"];
 pub const PACMANS: [&str; 7] = ["pacman", "apt", "emerge", "pkg", "apk", "xpvs", "dnf"];
-pub const PACMANS_OUTPUTS: [&str; 7] = ["/usr/bin/pacman", "/usr/bin/apt", "/usr/bin/emerge", "/usr/bin/pkg", "/usr/bin/apk", "/usr/bin/xpvs", "/usr/bin/dnf"];
+pub const PACMANS_OUTPUTS: [&str; 7] = ["/usr/bin/pacman", "/usr/local/bin/apt", "/usr/bin/emerge", "/usr/bin/pkg", "/usr/bin/apk", "/usr/bin/xpvs", "/usr/bin/dnf"];
