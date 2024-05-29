@@ -1,6 +1,7 @@
 use std::io;
 use crate::command_funcs::check_distro;
 use crate::command_funcs::get_selection;
+use crate::constant_vars::TYPE;
 
 
 mod constant_vars;
