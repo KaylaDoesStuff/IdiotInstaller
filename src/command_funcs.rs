@@ -1,17 +1,17 @@
-use crate::PACMANS;
-use crate::PACMANS_OUTPUTS;
-use crate::BASE;
-use crate::commandInput;
+use crate::constant_vars::PACMANS;
+use crate::constant_vars::PACMANS_OUTPUTS;
+use crate::constant_vars::BASE;
+use crate::main::commandInput;
 
  
  pub fn check_distro() -> String {
     let which = "which".to_string();
     let mut distro = "Unknown";
     for (i, pacman) in PACMANS.iter().enumerate() {
-        let check = main::commandInput(which.clone(), pacman.to_string());
+        let check = commandInput(which.clone(), pacman.to_string());
         if check.contains(PACMANS_OUTPUTS[i]) {
             let sel = &mut distro;
-            *sel = constant_vars::BASE[i];
+            *sel = BASE[i];
             break;
         }
     }
