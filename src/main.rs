@@ -14,7 +14,8 @@ use crate::constant_vars::EXTRA;
 use crate::constant_vars::PACMANS;
 use crate::constant_vars::PACMANS_OUTPUTS;
 
-
+mod constant_vars;
+mod command_funcs;
 
 fn main() {
     println!("Detected derivative of {}", check_distro());
