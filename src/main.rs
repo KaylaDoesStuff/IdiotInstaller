@@ -1,14 +1,7 @@
 use std::io;
 use crate::command_funcs::check_distro;
-use crate::constant_vars::TYPE;
-use crate::constant_vars::FILES;
-use crate::constant_vars::TERMINAL;
-use crate::constant_vars::BROWSER;
-use crate::constant_vars::MEDIA;
-use crate::constant_vars::GAMING;
-use crate::constant_vars::CONNECTION;
-use crate::constant_vars::DESKTOP;
-use crate::constant_vars::EXTRA;
+use crate::command_funcs::get_selection;
+
 
 mod constant_vars;
 mod command_funcs;
@@ -37,60 +30,4 @@ fn main() {
     };
 }
 
-fn get_selection(install_type: &str) -> String {
-    println!("Please select a number");
-    let mut n = 0;
-    let mut user_selection = "1".to_string();
-    match install_type {
-        "files" => for i in FILES {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "browsers" => for i in BROWSER {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "terminal" => for i in TERMINAL {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "media" => for i in MEDIA {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "gaming" => for i in GAMING {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "connection" => for i in CONNECTION {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "desktop" => for i in DESKTOP {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        "extra" => for i in EXTRA {
-            n += 1;
-            println!("{n}) {i}");
-            let sel = &mut user_selection;
-            *sel = "{i}".to_string();
-        },
-        &_ => todo!(),
-    }
-    return user_selection;
-}
+
