@@ -1,7 +1,7 @@
 use crate::constant_vars::PACMANS;
 use crate::constant_vars::PACMANS_OUTPUTS;
 use crate::constant_vars::BASE;
-use crate::main::commandInput;
+use main::commandInput;
 
  
  pub fn check_distro() -> String {
