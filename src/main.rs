@@ -1,6 +1,6 @@
 use std::io;
 use std::process::Command;
-use crate::commands;
+use crate::command_funcs;
 use crate::consts::BASE;
 use crate::consts::TYPE;
 use crate::consts::FILES;
@@ -40,7 +40,7 @@ fn main() {
     };
 }
 
-fn commands(input: String, input2: String) -> String {
+fn commandInput(input: String, input2: String) -> String {
     let cmd = Command::new(format!("{input}"))
         .arg(format!("{input2}"))
         .output()
