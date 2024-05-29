@@ -89,7 +89,10 @@ pub fn get_selection(install_type: &str) -> String {
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        &_ => todo!(),
+        &_ => {
+         println!("This is not a valid choice. Please try again.")
+         get_selection(install_type: &str);
+        },
     }
     return user_selection;
 }
