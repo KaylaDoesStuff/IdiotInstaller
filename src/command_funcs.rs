@@ -1,7 +1,6 @@
 use crate::constant_vars::PACMANS;
 use crate::constant_vars::PACMANS_OUTPUTS;
 use crate::constant_vars::BASE;
-use crate::constant_vars::TYPE;
 use crate::constant_vars::FILES;
 use crate::constant_vars::TERMINAL;
 use crate::constant_vars::BROWSER;
