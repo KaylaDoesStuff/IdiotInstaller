@@ -1,10 +1,7 @@
 use std::io;
 use crate::command_funcs::check_distro;
 use crate::command_funcs::get_selection;
-
-
-mod constant_vars;
-mod command_funcs;
+use crate::constant_vars::TYPE;
 
 fn main() {
     println!("Detected derivative of {}", check_distro());
