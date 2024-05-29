@@ -1,7 +1,6 @@
 use std::io;
 use std::process::Command;
 use crate::command_funcs::check_distro;
-use crate::constant_vars::BASE;
 use crate::constant_vars::TYPE;
 use crate::constant_vars::FILES;
 use crate::constant_vars::TERMINAL;
@@ -11,8 +10,6 @@ use crate::constant_vars::GAMING;
 use crate::constant_vars::CONNECTION;
 use crate::constant_vars::DESKTOP;
 use crate::constant_vars::EXTRA;
-use crate::constant_vars::PACMANS;
-use crate::constant_vars::PACMANS_OUTPUTS;
 
 mod constant_vars;
 mod command_funcs;
