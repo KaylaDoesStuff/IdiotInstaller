@@ -25,3 +25,4 @@ pub fn commandInput(input: String, input2: String) -> String {
     let output_utf8 = cmd.stdout;
     let output = String::from_utf8(output_utf8).expect("Not an argument");
     return output;
+}

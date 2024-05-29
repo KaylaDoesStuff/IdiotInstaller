@@ -38,8 +38,6 @@ fn main() {
     };
 }
 
-}
-
 fn get_selection(install_type: &str) -> String {
     println!("Please select a number");
     let mut n = 0;
