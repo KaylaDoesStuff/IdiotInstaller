@@ -1,7 +1,6 @@
 use crate::constant_vars::PACMANS;
 use crate::constant_vars::PACMANS_OUTPUTS;
 use crate::constant_vars::BASE;
-use crate::constant_vars::TYPE;
 use crate::constant_vars::FILES;
 use crate::constant_vars::TERMINAL;
 use crate::constant_vars::BROWSER;
@@ -37,7 +36,7 @@ pub fn command_input(input: String, input2: String) -> String {
     return output;
 }
 
-fn get_selection(install_type: &str) -> String {
+pub fn get_selection(install_type: &str) -> String {
     println!("Please select a number");
     let mut n = 0;
     let mut user_selection = "1".to_string();
