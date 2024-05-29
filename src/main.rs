@@ -17,10 +17,10 @@ use crate::consts::PACMANS_OUTPUTS;
 
 
 fn main() {
-    println!("Detected derivative of {}", commands::check_distro());
+    println!("Detected derivative of {}", check_distro());
     println!("What do you want to install?");
     let mut n = 0;
-    for i in consts::TYPE {
+    for i in TYPE {
         n += 1;
         println!("{n}) {i}");
     }
@@ -57,49 +57,49 @@ fn get_selection(install_type: &str) -> String {
     let mut n = 0;
     let mut user_selection = "1".to_string();
     match install_type {
-        "files" => for i in consts::FILES {
+        "files" => for i in FILES {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "browsers" => for i in consts::BROWSER {
+        "browsers" => for i in BROWSER {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "terminal" => for i in consts::TERMINAL {
+        "terminal" => for i in TERMINAL {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "media" => for i in consts::MEDIA {
+        "media" => for i in MEDIA {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "gaming" => for i in consts::GAMING {
+        "gaming" => for i in GAMING {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "connection" => for i in consts::CONNECTION {
+        "connection" => for i in CONNECTION {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "desktop" => for i in consts::DESKTOP {
+        "desktop" => for i in DESKTOP {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        "extra" => for i in consts::EXTRA {
+        "extra" => for i in EXTRA {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
