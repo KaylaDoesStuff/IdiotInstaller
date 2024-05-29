@@ -90,9 +90,21 @@ pub fn get_selection(install_type: &str) -> String {
             *sel = "{i}".to_string();
         },
         &_ => {
-         println!("This is not a valid choice. Please try again.")
-         get_selection(install_type: &str);
+            println!("This is not a valid choice. Please try again.");
+            get_selection(install_type: &str);
         },
     }
     return user_selection;
+}
+
+fn selection_validation(type_fail: &str, error: &str) {
+    
+    match error {
+        "Inv Input" => ""
+    }
+    match type_fail {
+        "extra" => {
+            
+        }
+    }
 }
