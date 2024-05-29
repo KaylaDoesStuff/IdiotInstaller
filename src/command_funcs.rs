@@ -8,7 +8,7 @@ pub fn check_distro() -> String {
     let which = "which".to_string();
     let mut distro = "Unknown";
     for (i, pacman) in PACMANS.iter().enumerate() {
-        let check = commandInput(which.clone(), pacman.to_string());
+        let check = command_input(which.clone(), pacman.to_string());
         if check.contains(PACMANS_OUTPUTS[i]) {
             let sel = &mut distro;
             *sel = BASE[i];
@@ -18,7 +18,7 @@ pub fn check_distro() -> String {
     return distro.to_string();
 }
 
-pub fn commandInput(input: String, input2: String) -> String {
+pub fn command_input(input: String, input2: String) -> String {
     let cmd = Command::new(format!("{input}"))
         .arg(format!("{input2}"))
         .output()
