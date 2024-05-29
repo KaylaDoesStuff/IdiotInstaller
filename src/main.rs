@@ -38,7 +38,7 @@ fn main() {
     };
 }
 
-fn commandInput(input: String, input2: String) -> String {
+pub fn commandInput(input: String, input2: String) -> String {
     let cmd = Command::new(format!("{input}"))
         .arg(format!("{input2}"))
         .output()
