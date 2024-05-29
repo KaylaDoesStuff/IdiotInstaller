@@ -1,6 +1,7 @@
 use crate::constant_vars::PACMANS;
 use crate::constant_vars::PACMANS_OUTPUTS;
 use crate::constant_vars::BASE;
+use std::process::Command;
 
  
 pub fn check_distro() -> String {

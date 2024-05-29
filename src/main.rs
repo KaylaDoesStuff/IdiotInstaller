@@ -1,5 +1,4 @@
 use std::io;
-use std::process::Command;
 use crate::command_funcs::check_distro;
 use crate::constant_vars::TYPE;
 use crate::constant_vars::FILES;
