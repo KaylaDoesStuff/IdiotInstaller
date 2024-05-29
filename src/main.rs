@@ -1,8 +1,19 @@
 use std::io;
 use std::process::Command;
+use crate::commands;
+use crate::consts::BASE;
+use crate::consts::TYPE;
+use crate::consts::FILES;
+use crate::consts::TERMINAL;
+use crate::consts::BROWSER;
+use crate::consts::MEDIA;
+use crate::consts::GAMING;
+use crate::consts::CONNECTION;
+use crate::consts::DESKTOP;
+use crate::consts::EXTRA;
+use crate::consts::PACMANS;
+use crate::consts::PACMANS_OUTPUTS;
 
-mod consts;
-mod commands;
 
 
 fn main() {
