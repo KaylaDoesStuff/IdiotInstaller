@@ -32,6 +32,9 @@ pub fn check_distro() -> String {
     } else if Command::new("apk").arg("info").arg("sudo").output().is_ok() {
         let sel = &mut _distro;
         *sel = "Alpine";
+    } else if Command::new("pmm").arg("-Q").arg("sudo").output().is_ok(){
+        let sel = &mut _distro;
+        *sel = "Bedrock";
     } else {
         let sel = &mut _distro;
         *sel = "Unknown";
@@ -95,4 +98,10 @@ pub fn get_selection(install_type: &str) -> String {
         &_ => todo!(),
     }
     return user_selection;
+}
+
+pub fn get_input() {
+    let mut user_input = String::new();
+    io::stdin().read_line(&mut user_input).expect("Failed to read line");
+    return user_input;
 }
