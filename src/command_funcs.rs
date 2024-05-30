@@ -1,5 +1,3 @@
-use crate::constant_vars::PACMANS;
-use crate::constant_vars::PACMANS_OUTPUTS;
 use crate::constant_vars::BASE;
 use crate::constant_vars::FILES;
 use crate::constant_vars::TERMINAL;
@@ -13,15 +11,23 @@ use std::process::Command;
 
  
 pub fn check_distro() -> String {
-    let which = "which".to_string();
     let mut distro = "Unknown";
-    for (i, pacman) in PACMANS.iter().enumerate() {
-        let check = command_input(which.clone(), pacman.to_string());
-        if check.contains(PACMANS_OUTPUTS[i]) {
-            let sel = &mut distro;
-            *sel = BASE[i];
-            break;
-        }
+    if Command::new("pacman").arg("-Q").arg("sudo").output().is_ok() {
+        distro = "Arch";
+    } else if Command::new("dpkg").arg("-s").arg("sudo").output().is_ok() {
+        distro = "Debian";
+    } else if Command::new("rpm").arg("-q").arg("sudo").output().is_ok() {
+        distro = "RPM-Based";
+    } else if Command::new("xbps-query").arg("-q").arg("sudo").output().is_ok() {
+        distro = "Void";
+    } else if Command::new("pkg").arg("info").arg("sudo").output().is_ok() {
+        distro = "FreeBSD";
+    } else if Command::new("emerge").arg("-q").arg("sudo").output().is_ok() {
+        distro = "Gentoo";
+    } else if Command::new("apk").arg("info").arg("sudo").output().is_ok() {
+        distro = "Alpine";
+    } else {
+        distro = "Unknown";
     }
     return distro.to_string();
 }
