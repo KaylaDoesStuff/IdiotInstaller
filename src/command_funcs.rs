@@ -36,7 +36,7 @@ pub fn check_distro() -> String {
         let sel = &mut _distro;
         *sel = "Unknown";
     }
-    return distro.to_string();
+    return _distro.to_string();
 }
 
 pub fn get_selection(install_type: &str) -> String {
