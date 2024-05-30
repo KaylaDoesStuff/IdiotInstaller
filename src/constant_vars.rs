@@ -1,4 +1,3 @@
-pub const BASE: [&str; 7] = ["Arch", "Debian", "Gentoo", "FreeBSD", "Alpine", "Void", "RHEL"];
 pub const TYPE: [&str; 8] = ["File Managers","Browsers","Terminals", "Media", "Gaming", "Connection Utilities", "Desktop Environments", "Extras"];
 pub const FILES: [&str; 4] = ["Caja", "Thunar", "Dolphin", "Nautilus"];
 pub const BROWSER: [&str; 6] = ["Chrome", "Chromium", "Opera", "Firefox", "LibreWolf", "Edge"];

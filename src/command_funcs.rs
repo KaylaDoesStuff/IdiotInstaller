@@ -1,4 +1,3 @@
-use crate::constant_vars::BASE;
 use crate::constant_vars::FILES;
 use crate::constant_vars::TERMINAL;
 use crate::constant_vars::BROWSER;
@@ -95,22 +94,7 @@ pub fn get_selection(install_type: &str) -> String {
             let sel = &mut user_selection;
             *sel = "{i}".to_string();
         },
-        &_ => {
-            println!("This is not a valid choice. Please try again.");
-            get_selection(install_type: &str);
-        },
+        &_ => todo!(),
     }
     return user_selection;
-}
-
-fn selection_validation(type_fail: &str, error: &str) {
-    
-    match error {
-        "Inv Input" => ""
-    }
-    match type_fail {
-        "extra" => {
-            
-        }
-    }
 }
