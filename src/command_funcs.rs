@@ -10,30 +10,30 @@ use std::process::Command;
 
  
 pub fn check_distro() -> String {
-    let mut distro: &str = todo!();
+    let mut _distro: &str = todo!();
     if Command::new("pacman").arg("-Q").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "Arch";
     } else if Command::new("dpkg").arg("-s").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "Debian";
     } else if Command::new("rpm").arg("-q").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "RPM-Based";
     } else if Command::new("xbps-query").arg("-q").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "Void";
     } else if Command::new("pkg").arg("info").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "FreeBSD";
     } else if Command::new("emerge").arg("-q").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "Gentoo";
     } else if Command::new("apk").arg("info").arg("sudo").output().is_ok() {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "Alpine";
     } else {
-        let sel = &mut distro;
+        let sel = &mut _distro;
         *sel = "Unknown";
     }
     return distro.to_string();
