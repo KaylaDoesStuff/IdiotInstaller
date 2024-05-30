@@ -10,7 +10,6 @@ use std::process::Command;
 
  
 pub fn check_distro() -> String {
-    let mut distro = "Unknown";
     if Command::new("pacman").arg("-Q").arg("sudo").output().is_ok() {
         distro = "Arch";
     } else if Command::new("dpkg").arg("-s").arg("sudo").output().is_ok() {
@@ -29,16 +28,6 @@ pub fn check_distro() -> String {
         distro = "Unknown";
     }
     return distro.to_string();
-}
-
-pub fn command_input(input: String, input2: String) -> String {
-    let cmd = Command::new(format!("{input}"))
-        .arg(format!("{input2}"))
-        .output()
-        .expect("Command Not Found");
-    let output_utf8 = cmd.stdout;
-    let output = String::from_utf8(output_utf8).expect("Not an argument");
-    return output;
 }
 
 pub fn get_selection(install_type: &str) -> String {
