@@ -6,7 +6,10 @@ use crate::constant_vars::GAMING;
 use crate::constant_vars::CONNECTION;
 use crate::constant_vars::DESKTOP;
 use crate::constant_vars::EXTRA;
+use crate::constant_vars::GAMES;
+use crate::constant_vars::EMULATORS;
 use std::process::Command;
+use std::io;
 
  
 pub fn check_distro() -> String {
@@ -90,6 +93,18 @@ pub fn get_selection(install_type: &str) -> String {
             *sel = "{i}".to_string();
         },
         "extra" => for i in EXTRA {
+            n += 1;
+            println!("{n}) {i}");
+            let sel = &mut user_selection;
+            *sel = "{i}".to_string();
+        },
+        "games" => for i in GAMES {
+            n += 1;
+            println!("{n}) {i}");
+            let sel = &mut user_selection;
+            *sel = "{i}".to_string();
+        },
+        "emulators" => for i in EMULATORS {
             n += 1;
             println!("{n}) {i}");
             let sel = &mut user_selection;
