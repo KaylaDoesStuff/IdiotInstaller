@@ -10,7 +10,7 @@ use std::process::Command;
 
  
 pub fn check_distro() -> String {
-    let mut distro: &str;
+    let mut distro: &str = todo!();
     if Command::new("pacman").arg("-Q").arg("sudo").output().is_ok() {
         let sel = &mut distro;
         *sel = "Arch";
