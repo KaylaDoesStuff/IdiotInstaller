@@ -115,8 +115,9 @@ pub fn get_selection(install_type: &str) -> String {
     return user_selection;
 }
 
-pub fn get_input() {
+pub fn get_input(question: &str) -> String {
     let mut user_input = String::new();
+    println!("{question}");
     io::stdin().read_line(&mut user_input).expect("Failed to read line");
     return user_input;
 }

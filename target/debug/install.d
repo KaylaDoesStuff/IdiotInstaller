@@ -1,1 +1,1 @@
-/home/kayla/Documents/GitHub/IdiotInstaller/target/debug/install: /home/kayla/Documents/GitHub/IdiotInstaller/src/main.rs
+/home/kayla/Documents/GitHub/IdiotInstaller/target/debug/install: /home/kayla/Documents/GitHub/IdiotInstaller/src/command_funcs.rs /home/kayla/Documents/GitHub/IdiotInstaller/src/constant_vars.rs /home/kayla/Documents/GitHub/IdiotInstaller/src/main.rs

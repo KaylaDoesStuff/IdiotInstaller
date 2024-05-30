@@ -7,5 +7,5 @@ pub const GAMING: [&str; 7] = ["Steam", "Discord", "Prism Launcher", "ATLauncher
 pub const MEDIA: [&str; 7] = ["Spotify", "VLC", "ThunderBird", "OBS Studio", "KdenLive", "DaVinci Resolve", "Rhythm Box"];
 pub const DESKTOP: [&str; 8] = ["KDE Plasma", "GNOME", "Xfce4", "LXQT", "MATE", "i3", "Bspwm", "Sway"];
 pub const CONNECTION: [&str; 8] = ["Moonlight", "Sunshine", "Haguichi(Hamachi)", "ZeroTier", "WireGuard", "OpenSSH", "Anydesk", "TeamViewer"];
-pub const GAMES: [&str; 6] = ["Xonotic", "Sauerbraten", "MineTEST", "Open Doom", "Open Arena", "OsuLAZER"]
-pub const EMULATORS: [&str; 8] = ["RetroArch", "OpenEmu", "PCSX2", "Citris", "Duck Station", "Dolphin EMU", "PPSSPP", "Ryujinx"]
+pub const GAMES: [&str; 6] = ["Xonotic", "Sauerbraten", "MineTEST", "Open Doom", "Open Arena", "OsuLAZER"];
+pub const EMULATORS: [&str; 8] = ["RetroArch", "OpenEmu", "PCSX2", "Citris", "Duck Station", "Dolphin EMU", "PPSSPP", "Ryujinx"];

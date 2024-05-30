@@ -1,6 +1,7 @@
 use std::io;
 use crate::command_funcs::check_distro;
 use crate::command_funcs::get_selection;
+use crate::command_funcs::get_input;
 use crate::constant_vars::TYPE;
 
 mod command_funcs;
@@ -26,8 +27,11 @@ fn main() {
         6 => get_selection("connection"),
         7 => get_selection("desktop"),
         8 => get_selection("extra"),
+        9 => get_selection("games"),
+        10 => get_selection("emulators"),
         i32::MIN..=0_i32 | 9_i32..=i32::MAX => todo!(),
     };
+    get_input();
 }
 
 
